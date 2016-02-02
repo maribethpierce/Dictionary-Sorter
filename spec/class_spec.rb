@@ -24,11 +24,15 @@ RSpec.describe "all_sequences" do
     expect(words.keys).to include("rrot")
   end
 
-# Trying to figure out how to test output to a file... not there yet.
-  it "should output words and sequences to a file" do
-    list = ["arrow"]
+  it "should create 'sequences.txt'/'words.txt' and store sequences/words in the files" do
     test_list = UniqueSequenceExtractor.new(list)
-    allow(File).to receive(:open).and_yield(open_file)
-    expect(File.read('sequences.txt')).to eq("arro\nrrow")
+    test_list.output_unique_sequences
+    test_list.output_matching_words
+    expect(File.exists? "sequences.txt").to eq(true)
+    expect(File.exists? "words.txt").to eq(true)
+    expect(File.read 'sequences.txt').to_not include('arro')
+    expect(File.read 'sequences.txt').to include('rrot')
+    expect(File.read 'words.txt').to include('give')
+    expect(File.read 'words.txt').to_not include('me')
   end
 end
