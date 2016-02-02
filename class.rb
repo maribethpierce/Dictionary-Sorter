@@ -1,8 +1,8 @@
 require 'pry'
 # Given a list of words, this class will return a
 # Set of sequences unique amongst all the words
-long_list = File.open "dictionary"
-# long_list = ["arrows", "carrots", "give", "me", "dominoes", "dominion", "dominic", "appalachian", "appalcart"]
+# long_list = File.open "dictionary"
+long_list = ["arrows", "carrots", "give", "me", "dominoes", "dominion", "dominic", "appalachian", "appalcart"]
 
 class UniqueSequenceExtractor
   attr_reader :words
@@ -18,6 +18,12 @@ class UniqueSequenceExtractor
   def output_unique_sequences
     File.open('sequences.txt', 'w') do |f|
       f.puts self.unique_sequences.keys.each { |k| puts "#{k}\n"}
+    end
+  end
+
+  def output_matching_words
+    File.open('words.txt', 'w') do |f|
+      f.puts self.unique_sequences.values.each { |v| puts "#{v}\n"}
     end
   end
 
@@ -67,3 +73,4 @@ end
 
 dict = UniqueSequenceExtractor.new(long_list)
 dict.output_unique_sequences
+# dict.output_matching_words
