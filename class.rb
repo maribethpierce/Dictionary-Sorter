@@ -48,7 +48,7 @@ class UniqueSequenceExtractor
       if word.length >= 4
         final = word.length - 4
         base = 0
-        until base == final
+        while base <= final do
           seq = word[base..(base + 3)]
           sequences[seq] << word
           base += 1
@@ -72,5 +72,5 @@ class UniqueSequenceExtractor
 end
 
 dict = UniqueSequenceExtractor.new(long_list)
-dict.output_unique_sequences
+# dict.output_unique_sequences
 # dict.output_matching_words
