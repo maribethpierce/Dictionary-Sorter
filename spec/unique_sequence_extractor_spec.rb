@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative '../class'
+require_relative '../unique_sequence_extractor'
 require 'pry'
 
 list = ["arrows", "carrots", "give", "me", "dominoes", "dominion", "dominic", "appalachian", "appalcart"]
