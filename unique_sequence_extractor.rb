@@ -1,8 +1,7 @@
 require 'pry'
 # Given a list of words, this class will return a
 # Set of sequences unique amongst all the words
-# long_list = File.open "dictionary"
-long_list = ["arrows", "carrots", "give", "me", "dominoes", "dominion", "dominic", "appalachian", "appalcart"]
+long_list = File.open "dictionary"
 
 class UniqueSequenceExtractor
   attr_reader :words
